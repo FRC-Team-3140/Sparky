@@ -1,0 +1,11 @@
+[Unit]
+Description=RobotDance
+
+[Service]
+WorkingDirectory=/home/bolme/catkin_ws/src/legs_subsystem
+ExecStart=/usr/bin/python3.7 legs.py
+User=bolme
+Group=bolme
+
+[Install]
+WantedBy=multi-user.target
