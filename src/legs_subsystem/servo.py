@@ -10,7 +10,7 @@ class Servo:
 
     def __init__(self, servo_id, home_angle=100, reverse=False, min_angle=0, max_angle=180) -> None:
         self.servo = PCA9685.servo[servo_id]
-        self.servo.set_pulse_width_range(500, 2500)
+        self.servo.set_pulse_width_range(500, 2500) #500 to 2500
 
         self.name = "Servo " + str(servo_id)
 

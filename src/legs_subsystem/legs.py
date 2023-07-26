@@ -6,7 +6,7 @@ class Legs:
 
     def __init__(self):
         self.lb_shoulder = Servo(0,90,False)
-        self.lb_elbow = Servo(1,140)
+        self.lb_elbow = Servo(1,180)
         self.lb_wrist = Servo(2,110)
 
         self.lf_shoulder = Servo(4,80,True)
@@ -14,11 +14,11 @@ class Legs:
         self.lf_wrist = Servo(6,110)
 
         self.rf_shoulder = Servo(8,97,False) 
-        self.rf_elbow = Servo(9,100,True)
+        self.rf_elbow = Servo(9,100,True) #100
         self.rf_wrist = Servo(10,110,True)
 
         self.rb_shoulder = Servo(12,90,True)
-        self.rb_elbow = Servo(13,120,True)
+        self.rb_elbow = Servo(13,110,True)
         self.rb_wrist = Servo(14,110,True)
 
         self.running = True
@@ -53,6 +53,18 @@ class Legs:
     def stop_thread(self):
         self.running = False
         self.thread.join()
+    
+    def run_rb_lf_elbow(self, angle, time):
+        self.rb_elbow.move_time(angle, time)
+        self.lf_elbow.move_time(angle, time)
+
+    def run_rb_lf_wrist(self, angle, time):
+        self.rb_wrist.move_time(angle, time)
+        self.lf_wrist.move_time(angle, time)    
+
+    def run_rb_lf_shoulder(self, angle, time):
+        self.rb_shoulder.move_time(angle, time)
+        self.lf_shoulder.move_time(angle, time)        
 
 
 def dance(legs):
